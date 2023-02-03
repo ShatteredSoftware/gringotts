@@ -32,4 +32,4 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            target/plugins/gringotts-*.*.*-SNAPSHOT.jar
+            target/gringotts-*.*.*-SNAPSHOT.jar
