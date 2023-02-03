@@ -23,8 +23,16 @@ jobs:
         with:
           java-version: 17
           distribution: 'temurin'
+      - name: Restore Maven cache
+        uses: skjolber/maven-cache-github-action@v1
+        with:
+          step: restore
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
+      - name: Save Maven cache
+        uses: skjolber/maven-cache-github-action@v1
+        with:
+          step: save
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
